@@ -2,6 +2,7 @@
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,12 +16,46 @@ namespace Business.Concrete
         public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
-            
+        }
+
+        public void Add(Car car)
+        {
+            if (car.Description.Length > 2 && car.DailyPrice > 0)
+            {
+                _carDal.Add(car);
+
+            }
+            else
+            {
+                Console.WriteLine("ERROR");
+            }
+
         }
 
         public List<Car> GetAll()
         {
             return _carDal.GetAll();
+
+        }
+
+        public List<Car> GetByDailyPrice(decimal min, decimal max)
+        {
+            return _carDal.GetAll(c => c.DailyPrice >= min && c.DailyPrice <= max);
+        }
+
+        public List<CarDetailDto> GetCarDetailDtos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetCarsByBrandId(string id)
+        {
+            return _carDal.GetAll(c => c.BrandName == id);
+        }
+
+        public List<Car> GetCarsByColorId(string id)
+        {
+            return _carDal.GetAll(c => c.ColorName == id);
         }
     }
 }

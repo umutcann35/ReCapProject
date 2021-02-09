@@ -1,17 +1,18 @@
 ﻿using Core.DataAccess;
+using DataAccess.Concrete.EntityFrameWork;
 using Entities.Concrete;
-using Entities.DTOs;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface ICarDal: IEntityRepository<Car>
+    public interface IColorDal : IEntityRepository<Color>
     {
-
-        List<CarDetailDto> GetCarDetailDtos();
 
 
     }
+
+
 }
