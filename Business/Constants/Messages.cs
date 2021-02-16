@@ -7,10 +7,11 @@ namespace Business.Constants
 {
    public static class Messages
     {
-        public static string CarAdded = "Ekleme İşlemi Başarılı";
-        public static string CarDeleted = "Silme İşlemi Başarılı";
-        public static string CarUpdated = "Güncelleme İşlemi Başarılı";
+        public static string Added = "Ekleme İşlemi Başarılı";
+        public static string Deleted = "Silme İşlemi Başarılı";
+        public static string Updated = "Güncelleme İşlemi Başarılı";
         public static string BrandNameInvalid = "Marka bulunamadı!";
+        public static string Listed = "Listeleme İşlemi Başarılı";
         internal static List<Car> MaintenanceTime;
     }
 }

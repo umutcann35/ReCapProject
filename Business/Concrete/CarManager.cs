@@ -13,19 +13,20 @@ namespace Business.Concrete
 {
     public class CarManager : ICarService
     {
-        ICarDal _carDal;
+       private  ICarDal _carDal;
 
         public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
         }
-
+        
+        
         public IResult Add(Car car)
         {
             if (car.Description.Length > 2 && car.DailyPrice > 0)
             {
                 _carDal.Add(car);
-                return new SuccessResult(Messages.CarAdded);
+                return new SuccessResult(Messages.Added);
 
             }
             else
@@ -80,6 +81,16 @@ namespace Business.Concrete
         }
 
         public IDataResult<List<Car>> GetCarsByColorId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult Update(Car car)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult Delete(Car car)
         {
             throw new NotImplementedException();
         }
